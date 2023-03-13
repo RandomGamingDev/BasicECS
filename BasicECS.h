@@ -63,11 +63,11 @@ public:
 
 class SceneManager {
 public:
-	Scene* scenes;
+	Scene** scenes;
 	size_t currentScene;
 
 	SceneManager(
-		Scene* scenes,
+		Scene** scenes,
 		size_t currentScene
 		)
 	{
@@ -76,7 +76,7 @@ public:
 	}
 
 	Scene& getCurrentScene() {
-		return this->scenes[this->currentScene];
+		return *this->scenes[this->currentScene];
 	}
 
 	void start() {
